@@ -1,0 +1,12 @@
+<% content_for :title, "Editing prep task" %>
+
+<h1>Editing prep task</h1>
+
+<%= render "form", prep_task: @prep_task %>
+
+<br>
+
+<div>
+  <%= link_to "Show this prep task", @prep_task %> |
+  <%= link_to "Back to prep tasks", prep_tasks_path %>
+</div>

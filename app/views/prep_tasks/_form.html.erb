@@ -1,0 +1,52 @@
+<%= form_with(model: prep_task) do |form| %>
+  <% if prep_task.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(prep_task.errors.count, "error") %> prohibited this prep_task from being saved:</h2>
+
+      <ul>
+        <% prep_task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :target_qty, style: "display: block" %>
+    <%= form.number_field :target_qty %>
+  </div>
+
+  <div>
+    <%= form.label :actual_qty, style: "display: block" %>
+    <%= form.number_field :actual_qty %>
+  </div>
+
+  <div>
+    <%= form.label :prep_date, style: "display: block" %>
+    <%= form.date_field :prep_date %>
+  </div>
+
+  <div>
+    <%= form.label :comment, style: "display: block" %>
+    <%= form.textarea :comment %>
+  </div>
+
+  <div>
+    <%= form.label :completed, style: "display: block" %>
+    <%= form.checkbox :completed %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

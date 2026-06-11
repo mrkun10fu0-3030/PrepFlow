@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @prep_task %>
+
+<div>
+  <%= link_to "編集", edit_prep_task_path(@prep_task) %> |
+  <%= link_to "リストへ戻る", prep_tasks_path %>
+
+  <%= button_to "削除", @prep_task, method: :delete %>
+</div>

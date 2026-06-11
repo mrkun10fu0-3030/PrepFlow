@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "仕込みリスト" %>
+
+<h1>仕込みリスト</h1>
+
+<div id="prep_tasks">
+  <% @prep_tasks.each do |prep_task| %>
+    <%= render prep_task %>
+    <p>
+      <%= link_to "リストへ", prep_task %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "新規投稿", new_prep_task_path %>

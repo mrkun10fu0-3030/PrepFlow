@@ -1,0 +1,11 @@
+<% content_for :title, "New prep task" %>
+
+<h1>新規投稿</h1>
+
+<%= render "form", prep_task: @prep_task %>
+
+<br>
+
+<div>
+  <%= link_to "リストへ戻る", prep_tasks_path %>
+</div>
