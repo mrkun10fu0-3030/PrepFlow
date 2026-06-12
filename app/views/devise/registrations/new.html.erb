@@ -16,7 +16,7 @@
   <div class="field">
     <p><%= f.label :password, "パスワード" %></p>
     <% if @minimum_password_length %>
-      <p><em>(<%= @minimum_password_length %> characters minimum)</em></p>
+      <p><em>(<%= @minimum_password_length %> 文字以上)</em></p>
     <% end %>
     <p><%= f.password_field :password, placeholder: "パスワードを入力", autocomplete: "new-password" %></p>
   </div>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
 

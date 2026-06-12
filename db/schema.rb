@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_11_111235) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_12_052941) do
   create_table "prep_tasks", force: :cascade do |t|
-    t.integer "actual_qty"
+    t.string "actual_qty"
     t.text "comment"
     t.boolean "completed"
     t.datetime "created_at", null: false
     t.date "prep_date"
-    t.integer "target_qty"
+    t.string "target_qty"
     t.string "title"
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_11_111235) do
     t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
     t.string "reset_password_token"
-    t.integer "role"
+    t.integer "role", default: 0
     t.datetime "updated_at", null: false
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true

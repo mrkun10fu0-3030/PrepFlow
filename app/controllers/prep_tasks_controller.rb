@@ -1,5 +1,6 @@
 class PrepTasksController < ApplicationController
   before_action :set_prep_task, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /prep_tasks or /prep_tasks.json
   def index
