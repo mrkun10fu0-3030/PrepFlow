@@ -1,37 +1,40 @@
 <div id="<%= dom_id prep_task %>">
-
-  <div>
-    <strong>日付</strong>
-    <%= prep_task.prep_date %>
-  </div>
-
-  <div>
-    <strong>仕込み名</strong>
-    <%= prep_task.title %>
-  </div>
-
-  <div>
-    <strong>指示量</strong>
-    <%= prep_task.target_qty %>
-  </div>
-  
-  <div>
-    <strong>実績量</strong>
-    <%= prep_task.actual_qty %>
-  </div>
-
-  <div>
-    <strong>コメント</strong>
-    <%= prep_task.comment %>
-  </div>
-
-  <div>
-    <strong>実施</strong>
-    <%= prep_task.completed ? "済" : "未" %>
-  </div>
-
-  <div>
-    <strong>担当者</strong>
-    <%= prep_task.staff.username if prep_task.staff %>
-  </div>
+  <table class="table table-borderless mb-0">
+    <tbody>
+      <tr>
+        <th class="text-muted" style="width: 30%">日付</th>
+        <td><%= prep_task.prep_date %></td>
+      </tr>
+      <tr>
+        <th class="text-muted">仕込み名</th>
+        <td><%= prep_task.title %></td>
+      </tr>
+      <tr>
+        <th class="text-muted">指示量</th>
+        <td><%= prep_task.target_qty %></td>
+      </tr>
+      <tr>
+        <th class="text-muted">実績量</th>
+        <td><%= prep_task.actual_qty %></td>
+      </tr>
+      <tr>
+        <th class="text-muted">コメント</th>
+        <td><%= prep_task.comment %></td>
+      </tr>
+      <tr>
+        <th class="text-muted">実施</th>
+        <td>
+          <% if prep_task.completed %>
+            <span class="badge bg-success">済</span>
+          <% else %>
+            <span class="badge bg-secondary">未</span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-muted">担当者</th>
+        <td><%= prep_task.staff.username if prep_task.staff %></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

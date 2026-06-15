@@ -1,24 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <p class="text-success"><%= notice %></p>
 
-<%= render @prep_task %>
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <%= render @prep_task %>
+    </div>
+  </div>
 
-<% if current_user.staff? %>
-  <%= form_with url: complete_prep_task_path(@prep_task), method: :patch do |f| %>
-    <div>
-      <p><%= f.label :actual_qty, "実績量" %></p>
-      <p><%= f.text_field :actual_qty %></p>
+  <% if current_user.staff? %>
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="fw-bold mb-3" style="color: #2d6a4f;">実績入力</h5>
+        <%= form_with url: complete_prep_task_path(@prep_task), method: :patch do |f| %>
+          <div class="mb-3">
+            <%= f.label :actual_qty, "実績量", class: "form-label" %>
+            <%= f.text_field :actual_qty, class: "form-control" %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :comment, "コメント", class: "form-label" %>
+            <%= f.text_area :comment, class: "form-control", rows: 3 %>
+          </div>
+          <%= f.submit "完了報告", class: "btn btn-success w-100" %>
+        <% end %>
+      </div>
     </div>
-    <div>
-      <p><%= f.label :comment, "コメント" %></p>
-      <p><%= f.text_area :comment %></p>
-    </div>
-    <%= f.submit "完了報告" %>
   <% end %>
-<% end %>
 
-<p><%= link_to "一覧へ", prep_tasks_path %></p>
-
-<% if current_user.manager? %>
-  <p><%= link_to "編集", edit_prep_task_path(@prep_task) %></p>
-  <p><%= button_to "削除", @prep_task, method: :delete %></p>
-<% end %>
+  <div class="d-flex gap-2">
+    <%= link_to "一覧へ", prep_tasks_path, class: "btn btn-outline-secondary" %>
+    <% if current_user.manager? %>
+      <%= link_to "編集", edit_prep_task_path(@prep_task), class: "btn btn-outline-success" %>
+      <%= button_to "削除", @prep_task, method: :delete, class: "btn btn-outline-danger" %>
+    <% end %>
+  </div>
+</div>

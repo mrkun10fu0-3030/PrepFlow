@@ -1,9 +1,7 @@
 <%= form_with(model: prep_task) do |form| %>
   <% if prep_task.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(prep_task.errors.count, "error") %> prohibited this prep_task from being saved:</h2>
-
-      <ul>
+    <div class="alert alert-danger">
+      <ul class="mb-0">
         <% prep_task.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,37 +9,30 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :prep_date, "日付", style: "display: block" %>
-    <%= form.date_field :prep_date %>
+  <div class="mb-3">
+    <%= form.label :prep_date, "日付", class: "form-label" %>
+    <%= form.date_field :prep_date, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :title, "仕込み名", style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, "仕込み名", class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :target_qty, "指示量", style: "display: block" %>
-    <%= form.text_field :target_qty %>
-  </div>
-  
-  <div>
-    <%= form.label :actual_qty,"実績量", style: "display: block" %>
-    <%= form.text_field :actual_qty %>
+  <div class="mb-3">
+    <%= form.label :target_qty, "指示量", class: "form-label" %>
+    <%= form.text_field :target_qty, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :comment, "コメント", style: "display: block" %>
-    <%= form.textarea :comment %>
+  <div class="mb-3">
+    <%= form.label :comment, "コメント", class: "form-label" %>
+    <%= form.textarea :comment, class: "form-control", rows: 3 %>
   </div>
 
-  <div>
-    <%= form.label :completed, "実施", style: "display: block" %>
-    <%= form.checkbox :completed %>
+  <div class="mb-3 form-check">
+    <%= form.checkbox :completed, class: "form-check-input" %>
+    <%= form.label :completed, "完了", class: "form-check-label" %>
   </div>
 
-  <div>
-    <%= form.submit "登録" %>
-  </div>
+  <%= form.submit "登録", class: "btn btn-success w-100" %>
 <% end %>
