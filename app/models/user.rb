@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   before_create :set_role
   has_one_attached :avatar
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   validates :username, presence: true
-  
+
   enum :role, {
     staff: 0,
     manager: 1

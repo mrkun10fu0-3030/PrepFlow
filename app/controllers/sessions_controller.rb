@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :authenticate_user!, only: [:guest_sign_in, :guest_manager_sign_in]
+    skip_before_action :authenticate_user!, only: [ :guest_sign_in, :guest_manager_sign_in ]
 
     def guest_manager_sign_in
       manager = User.guest_manager

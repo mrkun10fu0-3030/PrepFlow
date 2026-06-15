@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       patch :complete
     end
   end
-  resources :users, only: [:show]
+  resources :users, only: [ :show ]
   post "guest_sign_in", to: "sessions#guest_sign_in"
   post "guest_manager_sign_in", to: "sessions#guest_manager_sign_in"
 

@@ -1,7 +1,7 @@
 class PrepTasksController < ApplicationController
   before_action :set_prep_task, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :require_manager!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_manager!, only: [ :new, :create, :edit, :update, :destroy ]
 
   def index
       @prep_tasks = current_user.staff? ? PrepTask.incomplete : PrepTask.all
