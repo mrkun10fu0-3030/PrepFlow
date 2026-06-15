@@ -1,16 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "仕込みリスト" %>
+<% content_for :title, "仕込み一覧" %>
 
 <h1>仕込みリスト</h1>
+
+<%= form_with url: prep_tasks_path, method: :get do |f| %>
+  <%= f.date_field :prep_date %>
+  <%= f.submit "検索" %>
+<% end %>
 
 <div id="prep_tasks">
   <% @prep_tasks.each do |prep_task| %>
     <%= render prep_task %>
     <p>
-      <%= link_to "リストへ", prep_task %>
+      <%= link_to "詳細", prep_task %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "仕込み登録", new_prep_task_path %>
+<% if current_user.manager? %>
+  <%= link_to "仕込み登録", new_prep_task_path %>
+<% end %>

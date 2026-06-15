@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_create :set_role
+  has_one_attached :avatar
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -21,7 +22,7 @@ class User < ApplicationRecord
   has_many :prep_tasks, dependent: :destroy
 
   protected
-  
+
   def self.guest_manager
     User.find_by!(email: "manager@example.com")
   end

@@ -1,9 +1,17 @@
 <h1>マイページ</h1>
 
+<div>
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, size: "100x100" %>
+  <% else %>
+    <%= image_tag "default_avatar.png", size: "100x100" %>
+  <% end %>
+</div>
+
 <h3>ユーザー名</h3>
 <p><%= @user.username %></p>
 <h3>メールアドレス</h3>
 <p><%= @user.email %></p>
 
 <%= link_to "編集", edit_user_registration_path %>
-<%= link_to "仕込みリストへ", prep_tasks_path %>
+<%= link_to "一覧へ", prep_tasks_path %>

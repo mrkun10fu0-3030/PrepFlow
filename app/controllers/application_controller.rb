@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
+  
+  def require_manager!
+    redirect_to root_path, alert: "権限がありません" unless current_user.manager?
+  end
 end

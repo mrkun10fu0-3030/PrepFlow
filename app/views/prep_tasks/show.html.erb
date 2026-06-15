@@ -2,9 +2,23 @@
 
 <%= render @prep_task %>
 
-<div>
-  <%= link_to "編集", edit_prep_task_path(@prep_task) %> |
-  <%= link_to "リストへ戻る", prep_tasks_path %>
+<% if current_user.staff? %>
+  <%= form_with url: complete_prep_task_path(@prep_task), method: :patch do |f| %>
+    <div>
+      <p><%= f.label :actual_qty, "実績量" %></p>
+      <p><%= f.text_field :actual_qty %></p>
+    </div>
+    <div>
+      <p><%= f.label :comment, "コメント" %></p>
+      <p><%= f.text_area :comment %></p>
+    </div>
+    <%= f.submit "完了報告" %>
+  <% end %>
+<% end %>
 
-  <%= button_to "削除", @prep_task, method: :delete %>
-</div>
+<p><%= link_to "一覧へ", prep_tasks_path %></p>
+
+<% if current_user.manager? %>
+  <p><%= link_to "編集", edit_prep_task_path(@prep_task) %></p>
+  <p><%= button_to "削除", @prep_task, method: :delete %></p>
+<% end %>

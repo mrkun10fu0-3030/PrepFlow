@@ -12,41 +12,36 @@
   <% end %>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :target_qty, style: "display: block" %>
-    <%= form.text_field :target_qty %>
-  </div>
-
-  <div>
-    <%= form.label :actual_qty, style: "display: block" %>
-    <%= form.text_field :actual_qty %>
-  </div>
-
-  <div>
-    <%= form.label :prep_date, style: "display: block" %>
+    <%= form.label :prep_date, "日付", style: "display: block" %>
     <%= form.date_field :prep_date %>
   </div>
 
   <div>
-    <%= form.label :comment, style: "display: block" %>
+    <%= form.label :title, "仕込み名", style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :target_qty, "指示量", style: "display: block" %>
+    <%= form.text_field :target_qty %>
+  </div>
+  
+  <div>
+    <%= form.label :actual_qty,"実績量", style: "display: block" %>
+    <%= form.text_field :actual_qty %>
+  </div>
+
+  <div>
+    <%= form.label :comment, "コメント", style: "display: block" %>
     <%= form.textarea :comment %>
   </div>
 
   <div>
-    <%= form.label :completed, style: "display: block" %>
+    <%= form.label :completed, "実施", style: "display: block" %>
     <%= form.checkbox :completed %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "登録" %>
   </div>
 <% end %>
