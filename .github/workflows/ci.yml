@@ -85,7 +85,20 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Debug schema
+        run: |
+         test -f db/schema.rb && echo "schema exists"
+         head -5 db/schema.rb
 
+      - name: Debug environment
+        run: |
+         pwd
+         ruby -v
+         bundle exec rails -v
+         ls -la
+         ls -la db
+         git log --oneline -1
+         
       - name: Run tests
         env:
           RAILS_ENV: test
