@@ -2,6 +2,8 @@ require "test_helper"
 
 class PrepTasksControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
+    sign_in @user
     @prep_task = prep_tasks(:one)
   end
 
@@ -19,7 +21,6 @@ class PrepTasksControllerTest < ActionDispatch::IntegrationTest
     assert_difference("PrepTask.count") do
       post prep_tasks_url, params: { prep_task: { actual_qty: @prep_task.actual_qty, comment: @prep_task.comment, completed: @prep_task.completed, prep_date: @prep_task.prep_date, target_qty: @prep_task.target_qty, title: @prep_task.title, user_id: @prep_task.user_id } }
     end
-
     assert_redirected_to prep_task_url(PrepTask.last)
   end
 
@@ -42,7 +43,6 @@ class PrepTasksControllerTest < ActionDispatch::IntegrationTest
     assert_difference("PrepTask.count", -1) do
       delete prep_task_url(@prep_task)
     end
-
     assert_redirected_to prep_tasks_url
   end
 end
