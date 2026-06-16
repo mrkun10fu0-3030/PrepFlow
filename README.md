@@ -22,7 +22,7 @@
 
 | 完了報告画面 | マイページ |
 |------------|----------|
-| ![完了報告](app/assets/images/docs/prep_sc5 .png) | ![マイページ](app/assets/images/docs/prep_sc6.png) |
+| ![完了報告](app/assets/images/docs/prep_sc5.png) | ![マイページ](app/assets/images/docs/prep_sc6.png) |
 
 ---
 
