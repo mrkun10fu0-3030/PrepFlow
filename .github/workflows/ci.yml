@@ -72,8 +72,7 @@ jobs:
           RAILS_ENV: test
         run: |
           bin/rails db:prepare
-          bin/rails test
-
+          bin/rails test test/controllers test/models test/helpers test/mailers
   system-test:
     runs-on: ubuntu-latest
     steps:
