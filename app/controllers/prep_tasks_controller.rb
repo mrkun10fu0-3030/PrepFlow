@@ -4,7 +4,7 @@ class PrepTasksController < ApplicationController
   before_action :require_manager!, only: [ :new, :create, :edit, :update, :destroy ]
 
   def index
-      @prep_tasks = current_user.staff? ? PrepTask.incomplete : PrepTask.all
+      @prep_tasks = current_user.staff? ? PrepTask.incomplete.order(prep_date: :asc) : PrepTask.all.order(prep_date: :asc)
       @prep_tasks = @prep_tasks.by_date(params[:prep_date]) if params[:prep_date].present?
   end
 
