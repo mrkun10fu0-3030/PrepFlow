@@ -37,4 +37,18 @@
       </tr>
     </tbody>
   </table>
+
+  <% if current_user.staff? && !prep_task.completed %>
+    <%= form_with url: complete_prep_task_path(prep_task), method: :patch do |f| %>
+      <div class="mb-2">
+        <%= f.label :actual_qty, "実績量", class: "form-label" %>
+        <%= f.text_field :actual_qty, class: "form-control form-control-sm" %>
+      </div>
+      <div class="mb-2">
+        <%= f.label :comment, "コメント", class: "form-label" %>
+        <%= f.text_area :comment, class: "form-control form-control-sm", rows: 2 %>
+      </div>
+      <%= f.submit "完了報告", class: "btn btn-success btn-sm w-100" %>
+    <% end %>
+  <% end %>
 </div>

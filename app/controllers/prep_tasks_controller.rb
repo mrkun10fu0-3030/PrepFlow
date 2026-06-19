@@ -57,7 +57,10 @@ class PrepTasksController < ApplicationController
   def complete
     @prep_task = PrepTask.find(params[:id])
     if @prep_task.update(actual_qty: params[:actual_qty], comment: params[:comment], staff_id: current_user.id, completed: true)
-      redirect_to prep_tasks_path, notice: "完了報告しました"
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to prep_tasks_path, notice: "完了報告しました" }
+      end
     else
       render :show
     end

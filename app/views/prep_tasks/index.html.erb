@@ -17,7 +17,7 @@
 
   <div class="row" id="prep_tasks">
     <% @prep_tasks.each do |prep_task| %>
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-3" id="prep_task_card_<%= prep_task.id %>">
         <div class="card shadow-sm">
           <div class="card-body">
             <%= render prep_task %>
