@@ -8,6 +8,11 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="mb-3">
+    <%= form.label :priority, "優先度", class: "form-label" %>
+    <%= form.select :priority, [["低", "low"], ["中", "medium"], ["高", "high"]], {}, class: "form-select" %>
+  </div>
 
   <div class="mb-3">
     <%= form.label :prep_date, "日付", class: "form-label" %>

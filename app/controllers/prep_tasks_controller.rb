@@ -66,12 +66,12 @@ class PrepTasksController < ApplicationController
     end
   end
 
+  def prep_task_params
+  params.require(:prep_task).permit(:user_id, :title, :target_qty, :actual_qty, :prep_date, :comment, :completed, :priority)
+  end
+
   private
   def set_prep_task
     @prep_task = PrepTask.find(params.expect(:id))
-  end
-
-  def prep_task_params
-    params.expect(prep_task: [ :user_id, :title, :target_qty, :actual_qty, :prep_date, :comment, :completed ])
   end
 end

@@ -2,6 +2,18 @@
   <table class="table table-borderless mb-0">
     <tbody>
       <tr>
+        <th class="text-muted">優先度</th>
+        <td>
+          <% if prep_task.high? %>
+            <span class="badge bg-danger">高</span>
+          <% elsif prep_task.medium? %>
+            <span class="badge bg-warning">中</span>
+          <% else %>
+            <span class="badge bg-secondary">低</span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
         <th class="text-muted" style="width: 30%">日付</th>
         <td><%= prep_task.prep_date %></td>
       </tr>

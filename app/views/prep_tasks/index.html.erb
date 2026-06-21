@@ -1,4 +1,10 @@
 <div class="container mt-4">
+  <% todays_tasks = @prep_tasks.select { |t| t.prep_date == Date.today && !t.completed } %>
+  <% if todays_tasks.any? %>
+    <div class="alert alert-warning">
+      本日の未完了仕込みが <%= todays_tasks.count %> 件あります！
+    </div>
+  <% end %>
   <p class="text-success"><%= notice %></p>
 
   <% content_for :title, "仕込み一覧" %>

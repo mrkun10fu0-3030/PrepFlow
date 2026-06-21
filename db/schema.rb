@@ -1,4 +1,4 @@
-ActiveRecord::Schema[8.1].define(version: 2026_06_15_002929) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_19_081501) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -33,6 +33,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_15_002929) do
     t.boolean "completed"
     t.datetime "created_at", null: false
     t.date "prep_date"
+    t.integer "priority", default: 1
     t.integer "staff_id"
     t.string "target_qty"
     t.string "title"
